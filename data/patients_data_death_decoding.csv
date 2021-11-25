@@ -1,0 +1,12 @@
+,description
+eid,PatientID
+21022-0.0,AgeRecruit
+53-0.0,DateRecruit
+34-0.0,YearBirth
+52-0.0,MonthBirth
+40007-0.0,AgeDeath
+40000-0.0,DateDeath
+31-0.0,Sex
+21001-0.0,BMI
+40001-0.0,cause of death 1
+40001-1.0,cause of death 2
