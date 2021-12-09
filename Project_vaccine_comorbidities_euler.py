@@ -79,6 +79,15 @@ issue_dt_random = random.choices(issue_dates, k = len(id_nvac))
 dict_nvac = dict(zip(id_nvac,issue_dt_random))
 clinical_vac['issue_date_format'] = clinical_vac['issue_date_format'].fillna(clinical_vac['eid'].map(dict_nvac))
 
+# add before/after vaccine column
+before_after_vaccine = []
+for i in range (len(clinical_vac)):
+    if clinical_vac['event_date_format'].iloc[i] >= clinical_vac['issue_date_format'].iloc[i]:
+        before_after_vaccine.append('after')
+    else:
+        before_after_vaccine.append('before')
+clinical_vac['before_after_vaccine'] = before_after_vaccine
+
 ### ANALYSIS 1) EFFECTS OF VACCINATION ON ADVERSE EVENTS ###
 
 ## 1a) Comparison of occurence of adverse events after vaccination of vaccinated and unvaccinated people
