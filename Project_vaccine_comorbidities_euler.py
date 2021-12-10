@@ -23,7 +23,7 @@ mortality_coding = pd.read_csv('/cluster/scratch/earaldi/BigData/Clinical_and_pr
 GPic10_red =  GPic10[['read_code', 'icd10_code']]
 GPic10_red = GPic10_red.rename(columns = {'read_code':'code'})
 clinical_ic10 = pd.merge(clinical, GPic10_red, how='inner', on='code')
-clinical_ic10.drop(columns = ['code_type', 'value', 'Unnamed: 0'], inplace = True)
+clinical_ic10.drop(columns = ['code_type', 'value'], inplace = True)
 clinical_ic10.drop_duplicates(inplace = True) 
 
 exclude = ('O','P','S','T','U','V','W','X','Y','Z')
@@ -50,14 +50,14 @@ id_vac = scripts[mask_vac]['eid']
 
 # change to datetime format, subset scripts to vaccinations
 clinical_ic10['event_date_format'] = pd.to_datetime(clinical_ic10['event_dt'])
-scripts.drop(columns = ['Unnamed: 0'], inplace = True)
+# scripts.drop(columns = ['Unnamed: 0'], inplace = True)
 mask_scripts_vac = scripts['dmd_code'].isin(dict_vac)
 scripts_vaccines_only = scripts[mask_scripts_vac] 
 scripts_vaccines_only['issue_date_format'] = pd.to_datetime(scripts_vaccines_only['issue_date'])
 
 # add deaths to clinical_ic10 df
 mortality_sub = mortality.dropna(subset=['DateDeath'])
-mortality_sub.drop(columns = ['Unnamed: 0', 'Sex', 'YearBirth', 'MonthBirth', 'DateRecruit', 'BMI', 'AgeDeath', 'AgeRecruit', 'cause of death 1', 'cause of death 2'], inplace = True)
+mortality_sub.drop(columns = ['Sex', 'YearBirth', 'MonthBirth', 'DateRecruit', 'BMI', 'AgeDeath', 'AgeRecruit', 'cause of death 1', 'cause of death 2'], inplace = True)
 mortality_sub.rename(columns = {'PatientID':'eid', 'DateDeath':'event_date_format'}, inplace = True) 
 
 mortality_sub['icd10_code'] = pd.Series(["death" for x in range(len(mortality.index))])
@@ -310,7 +310,7 @@ y = np.arange(len(RR_result))
 
 plt.errorbar(x, y, xerr = x_error, marker = "o", markersize = 10, color = 'b', ls='none')
 plt.xlabel('Risk Ratio (log scale)')
-plt.title('Risk ratio of vaccination in people with underlying diseases or the general population') # renée: Risk ratio of vaccination on an adverse event in subjects with underlying diseases and the entire population
+plt.title('Risk ratio of vaccination in people with underlying diseases or the general population') # rene: Risk ratio of vaccination on an adverse event in subjects with underlying diseases and the entire population
 plt.yticks(ticks = y, labels = RR_result.index) 
 plt.ylim(-0.5,1.5)
 plt.savefig('analysis/1a_b_RR_plot.svg', bbox_inches='tight')
@@ -571,7 +571,7 @@ y = np.arange(len(RR_result_cat_deaths))
 plt.errorbar(x, y, xerr = x_error, marker = "o", markersize = 10, color = 'b', ls='none')
 
 plt.xlabel('Risk Ratio (log scale)')
-plt.title('Risk ratio of vaccination in people with underlying diseases in different ICD10 categories') # renée: Risk ratio of vaccination on an adverse event in subjects with underlying diseases in specific ICD-10 categories
+plt.title('Risk ratio of vaccination in people with underlying diseases in different ICD10 categories') # rene: Risk ratio of vaccination on an adverse event in subjects with underlying diseases in specific ICD-10 categories
 plt.yticks(ticks = y, labels = RR_result_cat_deaths.index) 
 plt.savefig('analysis/2c_deaths_RR.svg', bbox_inches='tight')
 
