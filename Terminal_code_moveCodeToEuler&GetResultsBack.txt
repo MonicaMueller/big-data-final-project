@@ -1,0 +1,97 @@
+Windows PowerShell
+Copyright (C) Microsoft Corporation. All rights reserved.
+
+Install the latest PowerShell for new features and improvements! https://aka.ms/PSWindows
+
+PS C:\_Data\Daten\Education\ETH\Master\10_BigDataAnalysis\git test\big-data-final-project\data> scp
+usage: scp [-346BCpqrTv] [-c cipher] [-F ssh_config] [-i identity_file]
+            [-J destination] [-l limit] [-o ssh_option] [-P port]
+            [-S program] source ... target
+PS C:\_Data\Daten\Education\ETH\Master\10_BigDataAnalysis\git test\big-data-final-project\data> scp .\GP_ic10_lookup.csv bmonica@euler.ethz.ch://cluster/scratch/bmonica/covid_analysis
+Password:
+GP_ic10_lookup.csv                                                  100% 3525KB   3.4MB/s   00:01
+PS C:\_Data\Daten\Education\ETH\Master\10_BigDataAnalysis\git test\big-data-final-project\data> cd ..
+PS C:\_Data\Daten\Education\ETH\Master\10_BigDataAnalysis\git test\big-data-final-project> ls
+
+
+    Directory: C:\_Data\Daten\Education\ETH\Master\10_BigDataAnalysis\git test\big-data-final-project
+
+
+Mode                 LastWriteTime         Length Name
+----                 -------------         ------ ----
+d-----        10/12/2021     09:16                .idea
+d-----        08/11/2021     13:35                .ipynb_checkpoints
+d-----        10/12/2021     09:16                analysis
+d-----        30/11/2021     18:04                data
+-a----        08/11/2021     18:48             19 .gitignore
+-a----        10/11/2021     14:23          22077 1_tentative_project_plan.docx
+-a----        19/11/2021     11:02           7403 git_branching.md
+-a----        08/11/2021     13:25          17365 literature collection.docx
+-a----        10/12/2021     09:16          66952 Project_vaccine_comorbidities.ipynb
+-a----        10/12/2021     13:28          26098 Project_vaccine_comorbidities_euler.py
+-a----        08/11/2021     13:25             24 README.md
+
+
+PS C:\_Data\Daten\Education\ETH\Master\10_BigDataAnalysis\git test\big-data-final-project> scp .\Project_vaccine_comorbidities_euler.py bmonica@euler.ethz.ch://cluster/scratch/bmonica/covid_analysis/
+Password:
+Project_vaccine_comorbidities_euler.py                              100%   25KB   1.5MB/s   00:00
+PS C:\_Data\Daten\Education\ETH\Master\10_BigDataAnalysis\git test\big-data-final-project> mkdir analysis_euler
+
+
+    Directory: C:\_Data\Daten\Education\ETH\Master\10_BigDataAnalysis\git test\big-data-final-project
+
+
+Mode                 LastWriteTime         Length Name
+----                 -------------         ------ ----
+d-----        10/12/2021     17:05                analysis_euler
+
+
+PS C:\_Data\Daten\Education\ETH\Master\10_BigDataAnalysis\git test\big-data-final-project> ls
+
+
+    Directory: C:\_Data\Daten\Education\ETH\Master\10_BigDataAnalysis\git test\big-data-final-project
+
+
+Mode                 LastWriteTime         Length Name
+----                 -------------         ------ ----
+d-----        10/12/2021     09:16                .idea
+d-----        08/11/2021     13:35                .ipynb_checkpoints
+d-----        10/12/2021     09:16                analysis
+d-----        10/12/2021     17:05                analysis_euler
+d-----        30/11/2021     18:04                data
+-a----        08/11/2021     18:48             19 .gitignore
+-a----        10/11/2021     14:23          22077 1_tentative_project_plan.docx
+-a----        19/11/2021     11:02           7403 git_branching.md
+-a----        08/11/2021     13:25          17365 literature collection.docx
+-a----        10/12/2021     09:16          66952 Project_vaccine_comorbidities.ipynb
+-a----        10/12/2021     13:28          26098 Project_vaccine_comorbidities_euler.py
+-a----        08/11/2021     13:25             24 README.md
+
+
+PS C:\_Data\Daten\Education\ETH\Master\10_BigDataAnalysis\git test\big-data-final-project> scp bmonica@euler.ethz.ch://cluster/scratch/bmonica/covid_analysis/analysis/* .\analysis_euler\
+Password:
+1a_b_RR.csv                                                                                                                                                                    100%   89    12.4KB/s   00:00
+1a_b_RR_plot.svg                                                                                                                                                               100%   29KB   1.7MB/s   00:00
+1a_b_RR_table.csv                                                                                                                                                              100%  184    11.0KB/s   00:00
+1a_chi_square.csv                                                                                                                                                              100%  147     0.1KB/s   00:00
+1a_contigency_table.csv                                                                                                                                                        100%  123     8.9KB/s   00:00
+1a_total_AE_barplot.svg                                                                                                                                                        100%   29KB   1.8MB/s   00:00
+1a_total_AE_table.csv                                                                                                                                                          100%  167    10.7KB/s   00:00
+1b_chi_square.csv                                                                                                                                                              100%  146     9.1KB/s   00:00
+1b_contigency_table.csv                                                                                                                                                        100%  123     0.1KB/s   00:00
+1b_total_AE_barplot.svg                                                                                                                                                        100%   31KB   1.5MB/s   00:00
+1b_total_AE_table.csv                                                                                                                                                          100%  164     0.2KB/s   00:00
+1c_AE_barplot.svg                                                                                                                                                              100%   82KB   2.6MB/s   00:00
+1c_AE_RR.svg                                                                                                                                                                   100%   76KB   6.0MB/s   00:00
+1c_chi_square_RR_table.csv                                                                                                                                                     100% 1416     1.4KB/s   00:00
+1c_total_AE_table.csv                                                                                                                                                          100% 1241     1.2KB/s   00:00
+2a_b_RR_plot.svg                                                                                                                                                               100%   32KB   1.9MB/s   00:00
+2a_chi_square.csv                                                                                                                                                              100%  145     9.2KB/s   00:00
+2a_contigency_table.csv                                                                                                                                                        100%  118     0.1KB/s   00:00
+2b_chi_square.csv                                                                                                                                                              100%  145     0.1KB/s   00:00
+2b_contigency_table.csv                                                                                                                                                        100%  118     7.1KB/s   00:00
+2c_chi_square_RR_table.csv                                                                                                                                                     100% 1310    85.6KB/s   00:00
+2c_deaths_barplot.svg                                                                                                                                                          100%   82KB   5.1MB/s   00:00
+2c_deaths_RR.svg                                                                                                                                                               100%   75KB   6.1MB/s   00:00
+2c_total_mortality_table.csv                                                                                                                                                   100% 1254     1.2KB/s   00:00
+PS C:\_Data\Daten\Education\ETH\Master\10_BigDataAnalysis\git test\big-data-final-project>

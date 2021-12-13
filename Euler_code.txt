@@ -1,0 +1,560 @@
+Windows PowerShell
+Copyright (C) Microsoft Corporation. All rights reserved.
+
+Install the latest PowerShell for new features and improvements! https://aka.ms/PSWindows
+
+PS C:\Users\moniz> ssh
+usage: ssh [-46AaCfGgKkMNnqsTtVvXxYy] [-B bind_interface]
+           [-b bind_address] [-c cipher_spec] [-D [bind_address:]port]
+           [-E log_file] [-e escape_char] [-F configfile] [-I pkcs11]
+           [-i identity_file] [-J [user@]host[:port]] [-L address]
+           [-l login_name] [-m mac_spec] [-O ctl_cmd] [-o option] [-p port]
+           [-Q query_option] [-R address] [-S ctl_path] [-W host:port]
+           [-w local_tun[:remote_tun]] destination [command]
+PS C:\Users\moniz> ssh bmonica@euler.ethz.ch
+ssh: connect to host euler.ethz.ch port 22: Connection timed out
+PS C:\Users\moniz> ssh bmonica@euler.ethz.ch
+Password:
+
+      ____________________   ___
+     /  ________   ___   /__/  /
+    /  _____/  /  /  /  ___   /
+   /_______/  /__/  /__/  /__/
+   Eidgenoessische Technische Hochschule Zuerich
+   Swiss Federal Institute of Technology Zurich
+   -------------------------------------------------------------------------
+                                                    E U L E R  C L U S T E R
+
+
+                                                     https://scicomp.ethz.ch
+                                                    http://smartdesk.ethz.ch
+                                                  cluster-support@id.ethz.ch
+
+   =========================================================================
+
+
+[bmonica@eu-login-16 ~]$ pwd
+/cluster/home/bmonica
+[bmonica@eu-login-16 ~]$ ls
+test1  test.py
+[bmonica@eu-login-16 scratch]$ cd /cluster/scratch/bmonica
+[bmonica@eu-login-16 bmonica]$ ls
+BigData  Clinical_and_prescription_data  __USAGE_RULES__
+[bmonica@eu-login-16 bmonica]$ mkdir covid_analysis
+[bmonica@eu-login-16 bmonica]$ ls
+BigData  Clinical_and_prescription_data  covid_analysis  __USAGE_RULES__
+[bmonica@eu-login-16 /]$ cd /cluster/scratch/earaldi
+[bmonica@eu-login-16 earaldi]$ ls
+AK_temporarily  BigData  Data  Shared_Catherine  soft  test  __USAGE_RULES__
+[bmonica@eu-login-16 earaldi]$ cd BigData/
+[bmonica@eu-login-16 BigData]$ ls
+all_lkps_maps-Copy1.csv  Clinical_and_prescription_data  Gene_expression  PPI_and_cancer  Probiotics  Statins_diabetes
+[bmonica@eu-login-16 BigData]$ cd Clinical_and_prescription_data/
+[bmonica@eu-login-16 Clinical_and_prescription_data]$ ls
+COVID_Vaccine  ic10_lookup.csv  non_covid_clinical_sample.txt  non_covid_clinical.txt  prescriptions_full_dataset.csv  prescriptions_full_dataset_sample.csv
+[bmonica@eu-login-16 Clinical_and_prescription_data]$ cd COVID_Vaccine/
+[bmonica@eu-login-16 COVID_Vaccine]$ ls
+covid19_clinical_sample.txt  covid19_prescriptions_sample.txt  patients_data_death.csv           patients_data_death_sample.csv
+covid19_clinical.txt         covid19_prescriptions.txt         patients_data_death_decoding.csv
+[bmonica@eu-login-16 COVID_Vaccine]$ pwd
+/cluster/scratch/earaldi/BigData/Clinical_and_prescription_data/COVID_Vaccine
+[bmonica@eu-login-16 Clinical_and_prescription_data]$ cd /cluster/scratch/bmonica
+[bmonica@eu-login-16 bmonica]$ ls
+BigData  Clinical_and_prescription_data  covid_analysis  __USAGE_RULES__
+[bmonica@eu-login-16 bmonica]$ cd covid_analysis/
+[bmonica@eu-login-16 covid_analysis]$ pwd
+/cluster/scratch/bmonica/covid_analysis
+
+[bmonica@eu-login-16 covid_analysis]$ ls
+GP_ic10_lookup.csv
+
+[bmonica@eu-login-16 covid_analysis]$ ls
+GP_ic10_lookup.csv  Project_vaccine_comorbidities_euler.py
+
+[bmonica@eu-login-16 covid_analysis]$ python Project_vaccine_comorbidities_euler.py
+  File "Project_vaccine_comorbidities_euler.py", line 313
+SyntaxError: Non-ASCII character '\xc3' in file Project_vaccine_comorbidities_euler.py on line 313, but no encoding declared; see http://www.python.org/peps/pep-0263.html for details
+[bmonica@eu-login-16 covid_analysis]$ [bmonica@eu-login-16 covid_analysis]$ vim Project_vaccine_comorbidities_euler.py
+[bmonica@eu-login-16 covid_analysis]$ python Project_vaccine_comorbidities_euler.py
+  File "Project_vaccine_comorbidities_euler.py", line 313
+SyntaxError: Non-ASCII character '\xc3' in file Project_vaccine_comorbidities_euler.py on line 313, but no encoding declared; see http://www.python.org/peps/pep-0263.html for details
+[bmonica@eu-login-16 covid_analysis]$ vim Project_vaccine_comorbidities_euler.py
+[bmonica@eu-login-16 covid_analysis]$ python Project_vaccine_comorbidities_euler.py
+  File "Project_vaccine_comorbidities_euler.py", line 574
+SyntaxError: Non-ASCII character '\xc3' in file Project_vaccine_comorbidities_euler.py on line 574, but no encoding declared; see http://www.python.org/peps/pep-0263.html for details
+[bmonica@eu-login-16 covid_analysis]$ vim Project_vaccine_comorbidities_euler.py
+
+[bmonica@eu-login-16 covid_analysis]$ python Project_vaccine_comorbidities_euler.py
+Traceback (most recent call last):
+  File "Project_vaccine_comorbidities_euler.py", line 3, in <module>
+    import pandas as pd
+ImportError: No module named pandas
+[bmonica@eu-login-16 covid_analysis]$ module load new gcc/4.8.2 python/3.7.1
+Autoloading openblas/0.2.13_seq
+
+[bmonica@eu-login-16 covid_analysis]$ pwd
+/cluster/scratch/bmonica/covid_analysis
+[bmonica@eu-login-16 covid_analysis]$ mkdir analysis
+[bmonica@eu-login-16 covid_analysis]$ ls
+analysis  GP_ic10_lookup.csv  Project_vaccine_comorbidities_euler.py
+
+[bmonica@eu-login-16 covid_analysis]$ bsub -n 40 -W 24:00 -J COVID_analysis -N "python Project_vaccine_comorbidities_euler.py"
+Generic job.
+Job <196124764> is submitted to queue <normal.24h>.
+[bmonica@eu-login-16 covid_analysis]$ bjobs
+JOBID      USER    STAT  QUEUE      FROM_HOST   EXEC_HOST   JOB_NAME   SUBMIT_TIME
+196124764  bmonica PEND  normal.24h eu-login-16             *_analysis Dec 10 13:56
+[bmonica@eu-login-16 covid_analysis]$ bbjobs
+Job information
+  Job ID                              : 196124764
+  Status                              : PENDING
+  User                                : bmonica
+  Queue                               : normal.24h
+  Job name                            : COVID_analysis
+  Command                             : python Project_vaccine_comorbidities_euler.py
+  Working directory                   : /cluster/scratch/bmonica/covid_analysis
+Requested resources
+  Requested cores                     : 40
+  Requested runtime                   : 24 h 0 min
+  Requested memory                    : 1024 MB per core, 40960 MB total
+  Requested scratch                   : not specified
+  Dependency                          : -
+Job history
+  Submitted at                        : 13:56 2021-12-10
+  Queue wait time                     : 24 sec
+[bmonica@eu-login-16 covid_analysis]$ bbjobs
+Job information
+  Job ID                              : 196124764
+  Status                              : RUNNING
+  User                                : bmonica
+  Queue                               : normal.24h
+  Job name                            : COVID_analysis
+  Command                             : python Project_vaccine_comorbidities_euler.py
+  Working directory                   : /cluster/scratch/bmonica/covid_analysis
+Requested resources
+  Requested cores                     : 40
+  Requested runtime                   : 24 h 0 min
+  Requested memory                    : 1024 MB per core, 40960 MB total
+  Requested scratch                   : not specified
+  Dependency                          : -
+Job history
+  Submitted at                        : 13:56 2021-12-10
+  Started at                          : 13:57 2021-12-10
+  Queue wait time                     : 24 sec
+[bmonica@eu-login-16 covid_analysis]$ bjobs
+JOBID      USER    STAT  QUEUE      FROM_HOST   EXEC_HOST   JOB_NAME   SUBMIT_TIME
+196124764  bmonica RUN   normal.24h eu-login-16 40*eu-g1-05 *_analysis Dec 10 13:56
+
+[bmonica@eu-login-16 covid_analysis]$ bbjobs
+Job information
+  Job ID                              : 196124764
+  Status                              : RUNNING
+  Running on node                     : 40*eu-g1-050-4
+  User                                : bmonica
+  Queue                               : normal.24h
+  Job name                            : COVID_analysis
+  Command                             : python Project_vaccine_comorbidities_euler.py
+  Working directory                   : /cluster/scratch/bmonica/covid_analysis
+Requested resources
+  Requested cores                     : 40
+  Requested runtime                   : 24 h 0 min
+  Requested memory                    : 1024 MB per core, 40960 MB total
+  Requested scratch                   : not specified
+  Dependency                          : -
+Job history
+  Submitted at                        : 13:56 2021-12-10
+  Started at                          : 13:57 2021-12-10
+  Queue wait time                     : 24 sec
+Resource usage
+  Updated at                          : 14:02 2021-12-10
+  Wall-clock                          : 5 min
+  Tasks                               : 5
+  Total CPU time                      : 5 min
+  CPU utilization                     : 2.5 %
+  Sys/Kernel time                     : 0.0 %
+  Total resident Memory               : 33690 MB
+  Resident memory utilization         : 82.3 %
+[bmonica@eu-login-16 covid_analysis]$ client_loop: send disconnect: Connection reset
+PS C:\Users\moniz> ssh bmonica@euler.ethz.ch
+Password:
+
+      ____________________   ___
+     /  ________   ___   /__/  /
+    /  _____/  /  /  /  ___   /
+   /_______/  /__/  /__/  /__/
+   Eidgenoessische Technische Hochschule Zuerich
+   Swiss Federal Institute of Technology Zurich
+   -------------------------------------------------------------------------
+                                                    E U L E R  C L U S T E R
+
+
+                                                     https://scicomp.ethz.ch
+                                                    http://smartdesk.ethz.ch
+                                                  cluster-support@id.ethz.ch
+
+   =========================================================================
+
+[bmonica@eu-login-08 ~]$ bjobs
+No unfinished job found
+[bmonica@eu-login-08 ~]$ cd /cluster/scratch/bmonica/
+[bmonica@eu-login-08 bmonica]$ ls
+BigData  Clinical_and_prescription_data  covid_analysis  __USAGE_RULES__
+[bmonica@eu-login-08 bmonica]$ cd covid_analysis/
+[bmonica@eu-login-08 covid_analysis]$ ls
+analysis  GP_ic10_lookup.csv  lsf.o196124764  Project_vaccine_comorbidities_euler.py
+[bmonica@eu-login-08 covid_analysis]$ cd analysis/
+[bmonica@eu-login-08 analysis]$ ls
+[bmonica@eu-login-08 analysis]$ cd ..
+[bmonica@eu-login-08 covid_analysis]$ less lsf.o196124764
+[bmonica@eu-login-08 covid_analysis]$ [bmonica@eu-login-08 covid_analysis]$
+[bmonica@eu-login-08 covid_analysis]$ less lsf.o196124764
+[bmonica@eu-login-08 covid_analysis]$ [bmonica@eu-login-08 covid_analysis]$
+[bmonica@eu-login-08 covid_analysis]$ vim Project_vaccine_comorbidities_euler.py
+[bmonica@eu-login-08 covid_analysis]$ [bmonica@eu-login-08 covid_analysis]$
+
+[bmonica@eu-login-08 covid_analysis]$ bsub -n 40 -W 24:00 -J Covid_analysis -N "python Project_vaccine_comorbidities_euler.py"
+Generic job.
+Job <196127103> is submitted to queue <normal.24h>.
+[bmonica@eu-login-08 covid_analysis]$ bjobs
+JOBID      USER    STAT  QUEUE      FROM_HOST   EXEC_HOST   JOB_NAME   SUBMIT_TIME
+196127103  bmonica PEND  normal.24h eu-login-08             *_analysis Dec 10 14:46
+[bmonica@eu-login-08 covid_analysis]$ bbjobs
+Job information
+  Job ID                              : 196127103
+  Status                              : PENDING
+  User                                : bmonica
+  Queue                               : normal.24h
+  Job name                            : Covid_analysis
+  Command                             : python Project_vaccine_comorbidities_euler.py
+  Working directory                   : /cluster/scratch/bmonica/covid_analysis
+Requested resources
+  Requested cores                     : 40
+  Requested runtime                   : 24 h 0 min
+  Requested memory                    : 1024 MB per core, 40960 MB total
+  Requested scratch                   : not specified
+  Dependency                          : -
+Job history
+  Submitted at                        : 14:46 2021-12-10
+  Queue wait time                     : 13 sec
+[bmonica@eu-login-08 covid_analysis]$ bbjobs
+No jobs found for bmonica
+[bmonica@eu-login-08 covid_analysis]$ ls
+analysis  GP_ic10_lookup.csv  lsf.o196124764  lsf.o196127103  Project_vaccine_comorbidities_euler.py
+[bmonica@eu-login-08 covid_analysis]$ cat lsf.o19612
+lsf.o196124764  lsf.o196127103
+[bmonica@eu-login-08 covid_analysis]$ cat lsf.o196124764
+Traceback (most recent call last):
+  File "Project_vaccine_comorbidities_euler.py", line 26, in <module>
+    clinical_ic10.drop(columns = ['code_type', 'value', 'Unnamed: 0'], inplace = True)
+  File "/cluster/apps/python/3.7.1/x86_64/lib64/python3.7/site-packages/pandas/core/frame.py", line 3940, in drop
+    errors=errors)
+  File "/cluster/apps/python/3.7.1/x86_64/lib64/python3.7/site-packages/pandas/core/generic.py", line 3780, in drop
+    obj = obj._drop_axis(labels, axis, level=level, errors=errors)
+  File "/cluster/apps/python/3.7.1/x86_64/lib64/python3.7/site-packages/pandas/core/generic.py", line 3812, in _drop_axis
+    new_axis = axis.drop(labels, errors=errors)
+  File "/cluster/apps/python/3.7.1/x86_64/lib64/python3.7/site-packages/pandas/core/indexes/base.py", line 4964, in drop
+    '{} not found in axis'.format(labels[mask]))
+KeyError: "['Unnamed: 0'] not found in axis"
+[bmonica@eu-login-08 covid_analysis]$ rm lsf.o196124764
+
+[bmonica@eu-login-08 covid_analysis]$ cat lsf.o196127103
+Traceback (most recent call last):
+  File "Project_vaccine_comorbidities_euler.py", line 3, in <module>
+    import pandas as pd
+ImportError: No module named pandas
+[bmonica@eu-login-08 covid_analysis]$ module load new gcc/4.8.2 python/3.7.1
+Autoloading openblas/0.2.13_seq
+
+[bmonica@eu-login-08 covid_analysis]$ bsub -n 40 -W 24:00 -J Covid_analysis -N "python Project_vaccine_comorbidities_euler.py"
+Generic job.
+Job <196127483> is submitted to queue <normal.24h>.
+[bmonica@eu-login-08 covid_analysis]$ bbjobs
+Job information
+  Job ID                              : 196127483
+  Status                              : PENDING
+  User                                : bmonica
+  Queue                               : normal.24h
+  Job name                            : Covid_analysis
+  Command                             : python Project_vaccine_comorbidities_euler.py
+  Working directory                   : /cluster/scratch/bmonica/covid_analysis
+Requested resources
+  Requested cores                     : 40
+  Requested runtime                   : 24 h 0 min
+  Requested memory                    : 1024 MB per core, 40960 MB total
+  Requested scratch                   : not specified
+  Dependency                          : -
+Job history
+  Submitted at                        : 14:48 2021-12-10
+  Queue wait time                     : 8 sec
+[bmonica@eu-login-08 covid_analysis]$ bbjobs
+Job information
+  Job ID                              : 196127483
+  Status                              : RUNNING
+  Running on node                     : 40*eu-g1-049-3
+  User                                : bmonica
+  Queue                               : normal.24h
+  Job name                            : Covid_analysis
+  Command                             : python Project_vaccine_comorbidities_euler.py
+  Working directory                   : /cluster/scratch/bmonica/covid_analysis
+Requested resources
+  Requested cores                     : 40
+  Requested runtime                   : 24 h 0 min
+  Requested memory                    : 1024 MB per core, 40960 MB total
+  Requested scratch                   : not specified
+  Dependency                          : -
+Job history
+  Submitted at                        : 14:48 2021-12-10
+  Started at                          : 14:48 2021-12-10
+  Queue wait time                     : 28 sec
+Resource usage
+  Updated at                          : 15:26 2021-12-10
+  Wall-clock                          : 37 min
+  Tasks                               : 5
+  Total CPU time                      : 37 min
+  CPU utilization                     : 2.5 %
+  Sys/Kernel time                     : 0.0 %
+  Total resident Memory               : 20839 MB
+  Resident memory utilization         : 50.9 %
+[bmonica@eu-login-08 covid_analysis]$ bbjobs
+No jobs found for bmonica
+[bmonica@eu-login-08 covid_analysis]$ ls
+analysis  GP_ic10_lookup.csv  lsf.o196127103  lsf.o196127483  Project_vaccine_comorbidities_euler.py
+[bmonica@eu-login-08 covid_analysis]$ cat lsf.o196127483
+Traceback (most recent call last):
+  File "Project_vaccine_comorbidities_euler.py", line 53, in <module>
+    scripts.drop(columns = ['Unnamed: 0'], inplace = True)
+  File "/cluster/apps/python/3.7.1/x86_64/lib64/python3.7/site-packages/pandas/core/frame.py", line 3940, in drop
+    errors=errors)
+  File "/cluster/apps/python/3.7.1/x86_64/lib64/python3.7/site-packages/pandas/core/generic.py", line 3780, in drop
+    obj = obj._drop_axis(labels, axis, level=level, errors=errors)
+  File "/cluster/apps/python/3.7.1/x86_64/lib64/python3.7/site-packages/pandas/core/generic.py", line 3812, in _drop_axis
+    new_axis = axis.drop(labels, errors=errors)
+  File "/cluster/apps/python/3.7.1/x86_64/lib64/python3.7/site-packages/pandas/core/indexes/base.py", line 4964, in drop
+    '{} not found in axis'.format(labels[mask]))
+KeyError: "['Unnamed: 0'] not found in axis"
+[bmonica@eu-login-08 covid_analysis]$ vim Project_vaccine_comorbidities_euler.py
+[bmonica@eu-login-08 covid_analysis]$ [bmonica@eu-login-08 covid_analysis]$
+
+[bmonica@eu-login-08 covid_analysis]$ bsub -n 40 -W 24:00 -J Covid_analysis -N "python Project_vaccine_comorbidities_euler.py"
+Generic job.
+Job <196136359> is submitted to queue <normal.24h>.
+[bmonica@eu-login-08 covid_analysis]$ bbjobs
+Job information
+  Job ID                              : 196136359
+  Status                              : RUNNING
+  Running on node                     : 40*eu-g1-035-3
+  User                                : bmonica
+  Queue                               : normal.24h
+  Job name                            : Covid_analysis
+  Command                             : python Project_vaccine_comorbidities_euler.py
+  Working directory                   : /cluster/scratch/bmonica/covid_analysis
+Requested resources
+  Requested cores                     : 40
+  Requested runtime                   : 24 h 0 min
+  Requested memory                    : 1024 MB per core, 40960 MB total
+  Requested scratch                   : not specified
+  Dependency                          : -
+Job history
+  Submitted at                        : 15:49 2021-12-10
+  Started at                          : 15:49 2021-12-10
+  Queue wait time                     : 21 sec
+Resource usage
+  Updated at                          : 16:02 2021-12-10
+  Wall-clock                          : 13 min
+  Tasks                               : 5
+  Total CPU time                      : 13 min
+  CPU utilization                     : 2.5 %
+  Sys/Kernel time                     : 0.0 %
+  Total resident Memory               : 58536 MB
+  Resident memory utilization         : 142.9 %
+
+[bmonica@eu-login-08 covid_analysis]$ bsub -n 40 -W 24:00 -J Covid_analysis_10G -R "rusage[mem=10000]" -N "python Project_vaccine_comorbidities_euler.py"
+Requested memory, 400000 MB, is greater than 128000 MB.
+Request aborted by esub. Job not submitted.
+[bmonica@eu-login-08 covid_analysis]$ bsub -n 12 -W 24:00 -J Covid_analysis_10G -R "rusage[mem=10000]" -N "python Project_vaccine_comorbidities_euler.py"
+Generic job.
+Job <196138225> is submitted to queue <bigmem.24h>.
+[bmonica@eu-login-08 covid_analysis]$ bjobs
+JOBID      USER    STAT  QUEUE      FROM_HOST   EXEC_HOST   JOB_NAME   SUBMIT_TIME
+196136359  bmonica RUN   normal.24h eu-login-08 40*eu-g1-03 *_analysis Dec 10 15:49
+196138225  bmonica PEND  bigmem.24h eu-login-08             *lysis_10G Dec 10 16:15
+[bmonica@eu-login-08 covid_analysis]$ bbjobs
+Job information
+  Job ID                              : 196136359
+  Status                              : RUNNING
+  Running on node                     : 40*eu-g1-035-3
+  User                                : bmonica
+  Queue                               : normal.24h
+  Job name                            : Covid_analysis
+  Command                             : python Project_vaccine_comorbidities_euler.py
+  Working directory                   : /cluster/scratch/bmonica/covid_analysis
+Requested resources
+  Requested cores                     : 40
+  Requested runtime                   : 24 h 0 min
+  Requested memory                    : 1024 MB per core, 40960 MB total
+  Requested scratch                   : not specified
+  Dependency                          : -
+Job history
+  Submitted at                        : 15:49 2021-12-10
+  Started at                          : 15:49 2021-12-10
+  Queue wait time                     : 21 sec
+Resource usage
+  Updated at                          : 16:35 2021-12-10
+  Wall-clock                          : 45 min
+  Tasks                               : 5
+  Total CPU time                      : 45 min
+  CPU utilization                     : 2.5 %
+  Sys/Kernel time                     : 0.0 %
+  Total resident Memory               : 20805 MB
+  Resident memory utilization         : 50.8 %
+
+Job information
+  Job ID                              : 196138225
+  Status                              : PENDING
+  User                                : bmonica
+  Queue                               : bigmem.24h
+  Job name                            : Covid_analysis_10G
+  Command                             : python Project_vaccine_comorbidities_euler.py
+  Working directory                   : /cluster/scratch/bmonica/covid_analysis
+Requested resources
+  Requested cores                     : 12
+  Requested runtime                   : 24 h 0 min
+  Requested memory                    : 10000 MB per core, 120000 MB total
+  Requested scratch                   : not specified
+  Dependency                          : -
+Job history
+  Submitted at                        : 16:15 2021-12-10
+  Queue wait time                     : 24 min
+[bmonica@eu-login-08 covid_analysis]$
+[bmonica@eu-login-08 covid_analysis]$ bjobs
+JOBID      USER    STAT  QUEUE      FROM_HOST   EXEC_HOST   JOB_NAME   SUBMIT_TIME
+196136359  bmonica RUN   normal.24h eu-login-08 40*eu-g1-03 *_analysis Dec 10 15:49
+196138225  bmonica PEND  bigmem.24h eu-login-08             *lysis_10G Dec 10 16:15
+[bmonica@eu-login-08 covid_analysis]$ bsub -n 12 -W 24:00 -J Covid_analysis_5G -R "rusage[mem=5000]" -N "python Project_vaccine_comorbidities_euler.py
+> bjobs
+> bsub -n 12 -W 24:00 -J Covid_analysis_5G -R "rusage[mem=5000]" -N "python Project_vaccine_comorbidities_euler.py
+Generic job.
+Job <196139356> is submitted to queue <normal.24h>.
+[bmonica@eu-login-08 covid_analysis]$ bjobs
+JOBID      USER    STAT  QUEUE      FROM_HOST   EXEC_HOST   JOB_NAME   SUBMIT_TIME
+196136359  bmonica RUN   normal.24h eu-login-08 40*eu-g1-03 *_analysis Dec 10 15:49
+196138225  bmonica PEND  bigmem.24h eu-login-08             *lysis_10G Dec 10 16:15
+196139356  bmonica PEND  normal.24h eu-login-08             *alysis_5G Dec 10 16:42
+[bmonica@eu-login-08 covid_analysis]$ bsub -n 25 -W 24:00 -J Covid_analysis_5G_morenodes -R "rusage[mem=5000]" -N "python Project_vaccine_comorbidities_euler.py"
+Generic job.
+Job <196139493> is submitted to queue <bigmem.24h>.
+[bmonica@eu-login-08 covid_analysis]$ bjobs
+JOBID      USER    STAT  QUEUE      FROM_HOST   EXEC_HOST   JOB_NAME   SUBMIT_TIME
+196136359  bmonica RUN   normal.24h eu-login-08 40*eu-g1-03 *_analysis Dec 10 15:49
+196138225  bmonica PEND  bigmem.24h eu-login-08             *lysis_10G Dec 10 16:15
+196139493  bmonica PEND  bigmem.24h eu-login-08             *morenodes Dec 10 16:44
+196139356  bmonica PEND  normal.24h eu-login-08             *alysis_5G Dec 10 16:42
+[bmonica@eu-login-08 covid_analysis]$ bkill 196139493
+Job <196139493> is being terminated
+[bmonica@eu-login-08 covid_analysis]$ bjobs
+JOBID      USER    STAT  QUEUE      FROM_HOST   EXEC_HOST   JOB_NAME   SUBMIT_TIME
+196136359  bmonica RUN   normal.24h eu-login-08 40*eu-g1-03 *_analysis Dec 10 15:49
+196138225  bmonica PEND  bigmem.24h eu-login-08             *lysis_10G Dec 10 16:15
+196139356  bmonica PEND  normal.24h eu-login-08             *alysis_5G Dec 10 16:42
+[bmonica@eu-login-08 covid_analysis]$ bjobs
+JOBID      USER    STAT  QUEUE      FROM_HOST   EXEC_HOST   JOB_NAME   SUBMIT_TIME
+196136359  bmonica RUN   normal.24h eu-login-08 40*eu-g1-03 *_analysis Dec 10 15:49
+196138225  bmonica PEND  bigmem.24h eu-login-08             *lysis_10G Dec 10 16:15
+196139356  bmonica PEND  normal.24h eu-login-08             *alysis_5G Dec 10 16:42
+[bmonica@eu-login-08 covid_analysis]$ bjobs
+JOBID      USER    STAT  QUEUE      FROM_HOST   EXEC_HOST   JOB_NAME   SUBMIT_TIME
+196138225  bmonica RUN   bigmem.24h eu-login-08 12*eu-g1-04 *lysis_10G Dec 10 16:15
+196139356  bmonica PEND  normal.24h eu-login-08             *alysis_5G Dec 10 16:42
+[bmonica@eu-login-08 covid_analysis]$ bbjobs
+Job information
+  Job ID                              : 196138225
+  Status                              : RUNNING
+  Running on node                     : 12*eu-g1-049-3
+  User                                : bmonica
+  Queue                               : bigmem.24h
+  Job name                            : Covid_analysis_10G
+  Command                             : python Project_vaccine_comorbidities_euler.py
+  Working directory                   : /cluster/scratch/bmonica/covid_analysis
+Requested resources
+  Requested cores                     : 12
+  Requested runtime                   : 24 h 0 min
+  Requested memory                    : 10000 MB per core, 120000 MB total
+  Requested scratch                   : not specified
+  Dependency                          : -
+Job history
+  Submitted at                        : 16:15 2021-12-10
+  Started at                          : 16:56 2021-12-10
+  Queue wait time                     : 41 min
+Resource usage
+  Updated at                          : 17:01 2021-12-10
+  Wall-clock                          : 5 min
+  Tasks                               : 5
+  Total CPU time                      : 298 sec
+  CPU utilization                     : 8.3 %
+  Sys/Kernel time                     : 0.0 %
+  Total resident Memory               : 28748 MB
+  Resident memory utilization         : 24.0 %
+
+Job information
+  Job ID                              : 196139356
+  Status                              : PENDING
+  User                                : bmonica
+  Queue                               : normal.24h
+  Job name                            : Covid_analysis_5G
+  Command                             : python Project_vaccine_comorbidities_euler.py;bjobs;bsub -[...]
+  Working directory                   : /cluster/scratch/bmonica/covid_analysis
+Requested resources
+  Requested cores                     : 12
+  Requested runtime                   : 24 h 0 min
+  Requested memory                    : 5000 MB per core, 60000 MB total
+  Requested scratch                   : not specified
+  Dependency                          : -
+Job history
+  Submitted at                        : 16:42 2021-12-10
+  Queue wait time                     : 19 min
+
+[bmonica@eu-login-08 covid_analysis]$ cd /cluster/scratch/bmonica/covid_analysis/
+[bmonica@eu-login-08 covid_analysis]$ ls
+analysis  GP_ic10_lookup.csv  lsf.o196127103  lsf.o196127483  lsf.o196136359  Project_vaccine_comorbidities_euler.py
+[bmonica@eu-login-08 covid_analysis]$ cd analysis/
+[bmonica@eu-login-08 analysis]$ ls
+1a_b_RR.csv        1a_contigency_table.csv  1b_contigency_table.csv  1c_AE_RR.svg                2a_chi_square.csv        2c_chi_square_RR_table.csv
+1a_b_RR_plot.svg   1a_total_AE_barplot.svg  1b_total_AE_barplot.svg  1c_chi_square_RR_table.csv  2a_contigency_table.csv  2c_deaths_barplot.svg
+1a_b_RR_table.csv  1a_total_AE_table.csv    1b_total_AE_table.csv    1c_total_AE_table.csv       2b_chi_square.csv        2c_deaths_RR.svg
+1a_chi_square.csv  1b_chi_square.csv        1c_AE_barplot.svg        2a_b_RR_plot.svg            2b_contigency_table.csv  2c_total_mortality_table.csv
+[bmonica@eu-login-08 analysis]$ pwd
+/cluster/scratch/bmonica/covid_analysis/analysis
+[bmonica@eu-login-08 analysis]$
+
+##from email:
+Job <Covid_analysis> was submitted from host <eu-login-08> by user <bmonica> in cluster <euler> at Fri Dec 10 15:49:01 2021
+Job was executed on host(s) <40*eu-g1-035-3>, in queue <normal.24h>, as user <bmonica> in cluster <euler> at Fri Dec 10 15:49:22 2021
+</cluster/home/bmonica> was used as the home directory.
+</cluster/scratch/bmonica/covid_analysis> was used as the working directory.
+Started at Fri Dec 10 15:49:22 2021
+Terminated at Fri Dec 10 16:56:06 2021
+Results reported at Fri Dec 10 16:56:06 2021
+
+Your job looked like:
+
+------------------------------------------------------------
+# LSBATCH: User input
+python Project_vaccine_comorbidities_euler.py
+------------------------------------------------------------
+
+Successfully completed.
+
+Resource usage summary:
+
+    CPU time :                                   3998.83 sec.
+    Max Memory :                                 63333 MB
+    Average Memory :                             27212.99 MB
+    Total Requested Memory :                     40960.00 MB
+    Delta Memory :                               -22373.00 MB
+    Max Swap :                                   -
+    Max Processes :                              3
+    Max Threads :                                5
+    Run time :                                   4027 sec.
+    Turnaround time :                            4025 sec.
+
+Read file <lsf.o196136359> for stdout and stderr output of this job.
