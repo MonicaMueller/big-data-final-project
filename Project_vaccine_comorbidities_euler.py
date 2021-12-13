@@ -118,8 +118,6 @@ def incidence(df_event, id_vac, id_nvac):
     
         # if we have no event (happens in the subset), add 0.5 for testing the plot and analysis further below
         # -> still visible in the output that it was added
-        if df_sum['Number of events'][v]==0:
-            df_sum['Number of events'][v]=0.5
     
     # put number of vaccinated/not vaccinated people in the population into the summary df
     df_sum['Number of individuals']['Vaccinated'] = len(id_vac) # vaccinated (row)
@@ -176,7 +174,7 @@ def contingency(df_event, id_vac, id_nvac, index = dict_vacORnot):
 
         # number of nonvaccinated/vaccinated people with event = number of individuals with AEs
         crosstab.loc[v,'event'] = len(df_event[df_event['vaccinated']==dict_vacORnot[v]]['eid'].unique())
-        
+
            
         # without events
 
