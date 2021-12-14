@@ -1,16 +1,16 @@
 ,Vaccinated,Not vaccinated
-Diseases of the blood and blood-forming organs and certain disorders involving the immune mechanism,5.434782608695652,1.7577429690281239
-"Congenital malformations, deformations and chromosomal abnormalities",2.3809523809523814,1.2114833941114564
-Neoplasms,2.336448598130841,1.3655206047305535
-"Endocrine, nutritional and metabolic diseases",2.242152466367713,1.2803043466332567
-Diseases of the eye and adnexa,1.8115942028985508,1.1399367335112902
-Diseases of the ear and mastoid process,1.7605633802816902,1.1189305379700245
-Diseases of the nervous system,1.7482517482517483,1.180115061218469
-Diseases of the circulatory system,1.7006802721088434,1.3299419812810667
-Diseases of the digestive system,1.5625,1.1512192106808419
-Diseases of the genitourinary system,1.4534883720930232,1.0716046207591248
-Diseases of the respiratory system,1.4492753623188406,1.0671614203709259
-Diseases of the skin and subcutaneous tissue,1.4084507042253522,1.0399092442841351
-Certain infectious and parasitic diseases,1.3623978201634876,1.0761744338386676
-"Mental, Behavioral and Neurodevelopmental disorders",1.3513513513513513,1.1423733141593813
-Diseases of the musculoskeletal system and connective tissue,1.2919896640826873,1.0433717777305727
+Certain infectious and parasitic diseases,0.0,2.5834306543511345
+Neoplasms,0.0,2.9594919538812503
+Diseases of the blood and blood-forming organs and certain disorders involving the immune mechanism,0.0,4.677581022385566
+"Endocrine, nutritional and metabolic diseases",0.0,3.160846291103747
+"Mental, Behavioral and Neurodevelopmental disorders",0.0,2.51994960100798
+Diseases of the nervous system,0.0,2.732919254658385
+Diseases of the eye and adnexa,0.0,2.9485639401550725
+Diseases of the ear and mastoid process,0.0,2.882675122513693
+Diseases of the circulatory system,0.0,3.0421939067942327
+Diseases of the respiratory system,0.0,2.549626661810235
+Diseases of the digestive system,0.0,2.7086719173229987
+Diseases of the skin and subcutaneous tissue,0.0,2.321671603554559
+Diseases of the musculoskeletal system and connective tissue,0.0,2.319327731092437
+Diseases of the genitourinary system,0.0,2.5507246376811596
+"Congenital malformations, deformations and chromosomal abnormalities",0.0,3.0550621669626996
