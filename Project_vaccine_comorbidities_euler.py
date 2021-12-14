@@ -10,10 +10,11 @@ random.seed(13)
 
 # import data
 # need to import this file in slightly different way because of different delimiters
-clinical = pd.read_csv('data/covid19_clinical_sample.txt',sep='\t|,', engine = 'python')
-GPic10 = pd.read_csv('data/GP_ic10_lookup.csv') 
-mortality = pd.read_csv('data/patients_data_death_sample.csv')
-mortality_coding = pd.read_csv('data/patients_data_death_decoding.csv')
+clinical = pd.read_csv('/cluster/scratch/earaldi/BigData/Clinical_and_prescription_data/COVID_Vaccine/covid19_clinical.txt',sep='\t|,', engine = 'python')
+GPic10 = pd.read_csv('/cluster/scratch/bmonica/covid_analysis/GP_ic10_lookup.csv') 
+mortality = pd.read_csv('/cluster/scratch/earaldi/BigData/Clinical_and_prescription_data/COVID_Vaccine/patients_data_death.csv')
+mortality_coding = pd.read_csv('/cluster/scratch/earaldi/BigData/Clinical_and_prescription_data/COVID_Vaccine/patients_data_death_decoding.csv')
+
 
 #### Data Cleaning
 # drop unnecessary columns
