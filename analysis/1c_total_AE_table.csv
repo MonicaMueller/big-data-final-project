@@ -1,16 +1,16 @@
 ,Vaccinated,Not vaccinated
-Diseases of the blood and blood-forming organs and certain disorders involving the immune mechanism,2.2026431718061676,359.375
-Neoplasms,1.1848341232227488,86.53846153846153
-"Congenital malformations, deformations and chromosomal abnormalities",1.1235955056179776,319.1489361702128
-Diseases of the ear and mastoid process,0.8818342151675485,140.35087719298244
-"Endocrine, nutritional and metabolic diseases",0.8726003490401396,167.93893129770993
-Diseases of the nervous system,0.8650519031141869,335.5263157894737
-Diseases of the eye and adnexa,0.8620689655172413,307.69230769230774
-Diseases of the circulatory system,0.7496251874062968,185.18518518518516
-Diseases of the digestive system,0.7374631268436578,280.4878048780488
-Diseases of the genitourinary system,0.6793478260869565,275.6756756756757
-Diseases of the skin and subcutaneous tissue,0.6684491978609626,241.57303370786516
-Diseases of the respiratory system,0.6435006435006435,251.3089005235602
-"Mental, Behavioral and Neurodevelopmental disorders",0.6345177664974618,233.502538071066
-Certain infectious and parasitic diseases,0.6211180124223603,264.24870466321244
-Diseases of the musculoskeletal system and connective tissue,0.5727376861397481,227.72277227722773
+"Congenital malformations, deformations and chromosomal abnormalities",1225.5125284738042,319.1489361702128
+Diseases of the blood and blood-forming organs and certain disorders involving the immune mechanism,1074.8898678414096,359.375
+"Endocrine, nutritional and metabolic diseases",1029.8769771528998,167.93893129770993
+Diseases of the nervous system,1022.5694444444445,335.5263157894737
+Diseases of the circulatory system,1021.021021021021,185.18518518518516
+Neoplasms,992.8400954653938,86.53846153846153
+Diseases of the eye and adnexa,982.7586206896551,307.69230769230774
+Diseases of the ear and mastoid process,897.1631205673759,140.35087719298244
+Diseases of the genitourinary system,877.7173913043478,275.6756756756757
+"Mental, Behavioral and Neurodevelopmental disorders",859.1370558375635,233.502538071066
+Diseases of the skin and subcutaneous tissue,851.2064343163539,241.57303370786516
+Diseases of the respiratory system,836.340206185567,251.3089005235602
+Certain infectious and parasitic diseases,834.5771144278607,264.24870466321244
+Diseases of the musculoskeletal system and connective tissue,827.0332187857961,227.72277227722773
+Diseases of the digestive system,762.5368731563423,280.4878048780488
