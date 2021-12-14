@@ -108,13 +108,9 @@ dict_nvac = dict(zip(id_nvac,issue_dt_random))
 clinical_vac['issue_dt'] = clinical_vac['issue_dt'].fillna(clinical_vac['eid'].map(dict_nvac))
 
 #### Add column where it says if the event (event_date_format) was before or after the vaccination (issue_date)
-before_after_vaccine = []
-for i in range (len(clinical_vac)):
-    if clinical_vac['event_dt'].iloc[i] >= clinical_vac['issue_dt'].iloc[i]:
-        before_after_vaccine.append('after')
-    else:
-        before_after_vaccine.append('before')
-clinical_vac['before_after_vaccine'] = before_after_vaccine
+conditions = [clinical_vac['event_dt']>=clinical_vac['issue_dt'], clinical_vac['event_dt']<clinical_vac['issue_dt']]
+choices = ['after', 'before']
+clinical_vac['before_after_vaccine'] = np.select(conditions, choices, default = 'before')
 
 
 #### Analysis 1) Effect of the vaccination on adverse events ####
