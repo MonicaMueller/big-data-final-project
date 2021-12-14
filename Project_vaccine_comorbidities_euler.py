@@ -9,7 +9,7 @@ import random
 random.seed(13)
 
 # import data
-# need to import this file in slightly different way because of different delimiters
+
 clinical = pd.read_csv('/cluster/scratch/earaldi/BigData/Clinical_and_prescription_data/COVID_Vaccine/covid19_clinical.txt',sep='\t|,', engine = 'python')
 GPic10 = pd.read_csv('/cluster/scratch/bmonica/covid_analysis/GP_ic10_lookup.csv') 
 mortality = pd.read_csv('/cluster/scratch/earaldi/BigData/Clinical_and_prescription_data/COVID_Vaccine/patients_data_death.csv')
@@ -80,8 +80,12 @@ mortality_sub['event_dt'] = pd.to_datetime(mortality_sub['event_dt'])
 clinical_ic10= pd.concat([clinical_ic10, mortality_sub], join = 'outer')
 
 #### Add column with the date of vaccination to clinical_ic10
+
+# drop event_dt & code in in clinical_vaccines only so that issue_dt of vaccine and event_dt of other medical event is on the same row
+clinical_vaccines_only.drop(columns = ['code', event_dt], inplace = True)
+
 # merge clinical_ic10 and clinical_vaccines_only to add the issue_date (date of vaccine) to the df
-clinical_vac = pd.merge(clinical_ic10, clinical_vaccines_only, how ='outer', on =['eid', 'code', 'event_dt'])
+clinical_vac = pd.merge(clinical_ic10, clinical_vaccines_only, how ='outer', on =['eid'])
 
 #### Add column in clinical_vac that says whether a patient is vaccinated or not
 mask_vaccinated = clinical_vac['eid'].isin(id_vac)
