@@ -77,12 +77,12 @@ mortality_sub['icd10_code'] = pd.Series(["death" for x in range(len(mortality.in
 mortality_sub['event_dt'] = pd.to_datetime(mortality_sub['event_dt'])
 
 # now join them
-clinical_ic10= pd.concat([clinical_ic10, mortality_sub], join = 'outer')
+clinical_ic10= pd.concat([clinical_ic10, mortality_sub], join = 'outer', sort = True)
 
 #### Add column with the date of vaccination to clinical_ic10
 
 # drop event_dt & code in in clinical_vaccines only so that issue_dt of vaccine and event_dt of other medical event is on the same row
-clinical_vaccines_only.drop(columns = ['code', event_dt], inplace = True)
+clinical_vaccines_only.drop(columns = ['code'], inplace = True)
 
 # merge clinical_ic10 and clinical_vaccines_only to add the issue_date (date of vaccine) to the df
 clinical_vac = pd.merge(clinical_ic10, clinical_vaccines_only, how ='outer', on =['eid'])
