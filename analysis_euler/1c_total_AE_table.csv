@@ -1,16 +1,16 @@
 ,Vaccinated,Not vaccinated
-Certain infectious and parasitic diseases,0.0,130.94100576848214
-Neoplasms,0.0,138.23293667920342
-Diseases of the blood and blood-forming organs and certain disorders involving the immune mechanism,0.0,176.30025615324647
-"Endocrine, nutritional and metabolic diseases",0.0,156.1560030588835
-"Mental, Behavioral and Neurodevelopmental disorders",0.0,134.25731485370292
-Diseases of the nervous system,0.0,159.00621118012424
-Diseases of the eye and adnexa,0.0,148.08343343889922
-Diseases of the ear and mastoid process,0.0,150.5909484001153
-Diseases of the circulatory system,0.0,151.05154093734842
-Diseases of the respiratory system,0.0,134.36532507739938
-Diseases of the digestive system,0.0,145.60153352502397
-Diseases of the skin and subcutaneous tissue,0.0,138.7799215435113
-Diseases of the musculoskeletal system and connective tissue,0.0,129.74789915966386
-Diseases of the genitourinary system,0.0,134.41545893719805
-"Congenital malformations, deformations and chromosomal abnormalities",0.0,164.90230905861455
+Diseases of the blood and blood-forming organs and certain disorders involving the immune mechanism,972.3385955664068,176.30025615324647
+"Congenital malformations, deformations and chromosomal abnormalities",852.3807418541933,164.90230905861455
+"Endocrine, nutritional and metabolic diseases",830.5593209039798,156.1560030588835
+Diseases of the circulatory system,822.1747921815322,151.05154093734842
+Diseases of the eye and adnexa,795.7257999793628,148.08343343889922
+Diseases of the nervous system,791.0983245896091,159.00621118012424
+Neoplasms,770.0858713595541,138.23293667920342
+Diseases of the ear and mastoid process,759.7052755673445,150.5909484001153
+Diseases of the digestive system,757.1242176124653,145.60153352502397
+Diseases of the respiratory system,734.6550834336831,134.36532507739938
+Diseases of the genitourinary system,731.2911202173856,134.41545893719805
+"Mental, Behavioral and Neurodevelopmental disorders",729.0733923656021,134.25731485370292
+Certain infectious and parasitic diseases,723.9484061781137,130.94100576848214
+Diseases of the skin and subcutaneous tissue,719.7515990149005,138.7799215435113
+Diseases of the musculoskeletal system and connective tissue,697.4929424455478,129.74789915966386

@@ -1,16 +1,16 @@
 ,Vaccinated,Not vaccinated
-Certain infectious and parasitic diseases,0.0,2.5834306543511345
-Neoplasms,0.0,2.9594919538812503
-Diseases of the blood and blood-forming organs and certain disorders involving the immune mechanism,0.0,4.677581022385566
-"Endocrine, nutritional and metabolic diseases",0.0,3.160846291103747
-"Mental, Behavioral and Neurodevelopmental disorders",0.0,2.51994960100798
-Diseases of the nervous system,0.0,2.732919254658385
-Diseases of the eye and adnexa,0.0,2.9485639401550725
-Diseases of the ear and mastoid process,0.0,2.882675122513693
-Diseases of the circulatory system,0.0,3.0421939067942327
-Diseases of the respiratory system,0.0,2.549626661810235
-Diseases of the digestive system,0.0,2.7086719173229987
-Diseases of the skin and subcutaneous tissue,0.0,2.321671603554559
-Diseases of the musculoskeletal system and connective tissue,0.0,2.319327731092437
-Diseases of the genitourinary system,0.0,2.5507246376811596
-"Congenital malformations, deformations and chromosomal abnormalities",0.0,3.0550621669626996
+Diseases of the blood and blood-forming organs and certain disorders involving the immune mechanism,1.58144438587243,4.677581022385566
+Neoplasms,1.2267337079162188,2.9594919538812503
+Diseases of the circulatory system,1.0927064398194481,3.0421939067942327
+"Congenital malformations, deformations and chromosomal abnormalities",1.0905286116391824,3.0550621669626996
+Diseases of the eye and adnexa,1.089187237018608,2.9485639401550725
+"Endocrine, nutritional and metabolic diseases",1.033310370880647,3.160846291103747
+Diseases of the nervous system,1.0266824617814632,2.732919254658385
+Diseases of the ear and mastoid process,0.9313292071912761,2.882675122513693
+Diseases of the digestive system,0.9265737571620369,2.7086719173229987
+Diseases of the respiratory system,0.9203509375537589,2.549626661810235
+Certain infectious and parasitic diseases,0.9119290174170227,2.5834306543511345
+Diseases of the genitourinary system,0.8999484495548313,2.5507246376811596
+"Mental, Behavioral and Neurodevelopmental disorders",0.8954332902198786,2.51994960100798
+Diseases of the musculoskeletal system and connective tissue,0.8415512083910306,2.319327731092437
+Diseases of the skin and subcutaneous tissue,0.8327279814319378,2.321671603554559
