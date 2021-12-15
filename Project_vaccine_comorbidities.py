@@ -31,7 +31,7 @@ random.seed(13)
 
 
 # need to import this file in slightly different way because of different delimiters
-clinical = pd.read_csv('/cluster/scratch/earaldi/BigData/Clinical_and_prescription_data/COVID_Vaccine/covid19_clinical.txt',sep='\t|,', engine = 'python')
+clinical = pd.read_csv('/cluster/scratch/earaldi/BigData/Clinical_and_prescription_data/COVID_Vaccine/covid19_clinical.txt',sep='\t', engine = 'python')
 
 
 # In[ ]:
