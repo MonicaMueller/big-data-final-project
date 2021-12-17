@@ -996,7 +996,7 @@ crosstab_ud_deaths.to_csv('analysis/2b_contigency_table.csv')
 stat_2b, p_2b, dof_2b, expected_2b = sp.stats.chi2_contingency(crosstab_ud_deaths.iloc[0:2,0:2], 1)
 
 # save
-chi_square_2b = pd.DataFrame([[stat_2a, p_2a, dof_2a, expected_2a]],columns=['stat_2a', 'p_2a', 'dof_2a', 'expected_2a'])
+chi_square_2b = pd.DataFrame([[stat_2b, p_2b, dof_2b, expected_2b]],columns=['stat_2b', 'p_2b', 'dof_2b', 'expected_2b'])
 chi_square_2b.to_csv('analysis/2b_chi_square.csv')
 
 
